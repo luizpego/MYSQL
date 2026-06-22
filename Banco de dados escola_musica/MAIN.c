@@ -108,4 +108,20 @@ on alunos.id_aluno = cursos.id_curso
 inner join matriculas
 on alunos.id_aluno = matriculas.id_matricula;
 
-select alunos.nome, curso.nome_curso
+select alunos.nome, cursos.nome_curso, professores.nome_prof
+from alunos
+inner join cursos
+on alunos.id_aluno = cursos.id_curso
+inner join professores
+on alunos.id_aluno = professores.id_professor
+inner join turmas
+on alunos.id_aluno = turmas.id_turma;
+
+SELECT alunos.nome,cursos.nome_curso,turmas.horario,matriculas.status,turmas.sala
+FROM alunos
+INNER JOIN matriculas 
+    ON alunos.id_aluno = matriculas.id_aluno
+INNER JOIN cursos 
+    ON matriculas.id_curso = cursos.id_curso
+INNER JOIN turmas 
+    ON cursos.id_curso = turmas.id_curso;
